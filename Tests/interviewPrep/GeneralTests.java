@@ -19,6 +19,8 @@ public class GeneralTests {
 		int [] testAmount = {10,0,0,10,5,5};		
 		assertTrue(Test.pairsSorted(testAmount) == 3);
 		
+		assertTrue(Test.pairSortedHash(testAmount) == 3);
+		
 	}
 
 }

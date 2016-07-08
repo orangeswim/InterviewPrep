@@ -3,6 +3,7 @@ package interviewPrep;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Hashtable;
 
 public class GeneralQuestions {
 	
@@ -54,10 +55,34 @@ public class GeneralQuestions {
 				pair++;
 			}
 		}
-				
 		return pair/2;
 	}
-			
+
+	/*
+	 * Hashing makes this operation O(n). Mind. Blown.
+	 * */
+	public int pairSortedHash(int [] arr)
+	{
+		int pair = 0;
+		
+		Hashtable<Integer, Integer> hashArray = new Hashtable<Integer,Integer>();
+		
+		for(int i = 0; i < arr.length; i++)
+		{
+			hashArray.put(arr[i], i);
+		}		
+		
+		for(int i = 0; i < arr.length;i++)
+		{
+			if(hashArray.containsKey(10 - arr[i]))
+			{
+				pair++;
+			}
+		}
+		return pair/2;
+	}
+	
+	
 			
 			
 	
