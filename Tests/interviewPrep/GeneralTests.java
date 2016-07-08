@@ -11,7 +11,11 @@ public class GeneralTests {
 	@Test
 	public void test() {
 
-		GeneralQuestions helloThere = new GeneralQuestions();
+		
+		GeneralQuestions Test = new GeneralQuestions();
+		int [] testIntegerFrequent = {0,1,2,3,1,1,4,2};
+		
+		assertTrue(Test.frequentInt(testIntegerFrequent) == 1);
 		
 	}
 
