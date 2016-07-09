@@ -37,6 +37,9 @@ public class GeneralQuestions {
 		return arr[maxIndex];
 	}
 
+	/*
+	 * nlogn solution because sorting.
+	 * */
 	public int pairsSorted(int [] arr)
 	{
 		ArrayList<Integer> numList = new ArrayList<Integer>();
@@ -83,7 +86,6 @@ public class GeneralQuestions {
 	}
 	
 	/*
-	 * I can solve this with all unique values... without it is hard.
 	 * http://stackoverflow.com/questions/31000591/check-if-a-list-is-a-rotation-of-another-list-that-works-with-duplicates
 	 * 
 	 * N^2 time complexity, (1) space.
@@ -127,7 +129,7 @@ public class GeneralQuestions {
 	}	
 	
 	/*
-	 * solved using dp. better solution is to use temp variables but I wanted to explicity use dp.
+	 * solved using dp. better solution is to use temp variables but I wanted to explicitly use dp.
 	 * */
 	public int fibnums(int n)
 	{
@@ -167,8 +169,127 @@ public class GeneralQuestions {
 			arr[n] = fibMemo(n-2,arr) + fibMemo(n-1,arr);
 			return arr[n];					
 		}
-		
+	}
 
+/*
+ * nlog in through a sort and iterate. Would take no extra space.
+ * 
+ * I opted for a O(n) time / O(n) space solution because a) Hashtables are really neat and I wanted practice
+ * and B) I like the reduced time complexity.
+ * 
+ * */
+public int elementInArrayOnce(int [] arr)
+{
+	Hashtable<Integer, Integer>  hashArray = new Hashtable<Integer,Integer>();
+	Hashtable<Integer, Integer> memoized  = new Hashtable<Integer, Integer>();
+
+	
+	for(int i = 0; i < arr.length; i++)
+	{
+		if(hashArray.containsKey(arr[i]))
+		{
+			memoized.put(arr[i],i);
+		}
+		else
+		{
+		hashArray.put(arr[i], i);
+		}
+	}	
+	
+	for(int i = 0; i < arr.length; i++)
+	{
+		if(!(memoized.containsKey(arr[i])))
+		{
+			return arr[i];
+		}
+	}
+	return -1; // should never return.
+}
+
+/* Find the common elements of 2 int arrays 
+ * 
+ * Solved in O(n) time O(n) space
+ * 
+ * can be solved in OlogN time through a sort first.
+ * 
+ * Figured this one out on my own :)
+ * 
+ * */
+
+public int [] two_elements_of_int_array(int [] arr1, int [] arr2){
+	int[] commonEls = new int[arr1.length];
+	Hashtable<Integer, Integer>  arr1hash = new Hashtable<Integer,Integer>();
+	
+	for(int i = 0; i < arr1.length; i++)
+	{
+		if(!arr1hash.containsKey(arr1[i]))
+		{
+			arr1hash.put(arr1[i], i);
+		}
+	}
+
+	int commonIndex = 0;
+	for(int i = 0; i < arr2.length;i++)
+	{
+
+		if(arr1hash.containsKey(arr2[i]))
+		{
+			commonEls[commonIndex] = arr2[i];
+			commonIndex++;
+			arr1hash.remove(arr2[i]);
+		}
+	}
+	return commonEls;
+}
+
+
+/*
+ * Rotated index would require an off-set.
+ * */
+public boolean binarySearch(int arr [], int num)
+{
+	return _recursiveSearch(arr, 0, arr.length-1, num);
+}
+/*
+ * Binary Tree Search.
+ * */
+private boolean _recursiveSearch(int[] arr, int min, int max, int num) {	
+	
+	if(min > max)
+	{
+		return false;
+	}
+	int index = (min + max) / 2;
+	
+	if(arr[index] < num)
+	{
+		return  _recursiveSearch(arr, index+1, max, num);
+	}
+	else if(arr[index] > num)
+	{
+		return _recursiveSearch(arr, min, index-1, num);
+	}
+	else
+	{
+		return true;
+	}
+}
+
+public int multipleInts(int num1, int num2)
+{
+	int answer = 0;
+	for(int i = 0; i < num2; i++)
+	{
+		answer+=num1;
 	}
 	
+	return answer;
+}
+
+public int [] dynamicPrimes(int x)
+{
+	
+	return null;
+}
+
 }
