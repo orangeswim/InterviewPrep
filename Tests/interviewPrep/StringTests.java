@@ -16,7 +16,6 @@ public class StringTests {
 	assertTrue(UnitTest.reverseRecursionString(aabbcdd).equals("ddcbbaa"));
 	assertTrue(UnitTest.anagram("TomMarvoloRiddle", "IamLordVoldemort"));
 	assertFalse(UnitTest.anagram("HarryPotter", "IamLordVoldemort"));
-	
 	assertTrue(UnitTest.palindrome("racecar"));
 	assertFalse(UnitTest.palindrome("wally"));
 	assertTrue(UnitTest.palindrome_slick("racecar"));
