@@ -24,10 +24,27 @@ public	int coins(int coinValue[], int money)
 						minCoinCount[i] = minCoin;
 					}
 				}
-
 			}
 		}
 		return minCoinCount[money];
 	}
 
+public int cutRod(int[] lengthPrice, int length)
+{
+	int [] bestPrice = new int[length+1];
+	
+	Arrays.fill(bestPrice, Integer.MIN_VALUE);
+	
+	System.out.println(lengthPrice.length);
+	bestPrice[0] = 0;
+	for(int i = 1; i <length+1;i++)
+	{
+		for(int j = 0; i < lengthPrice.length; j++)
+		{
+			
+		}
+	}
+	
+	return 0;
+}
 }

@@ -11,9 +11,11 @@ public class DyMemTests {
 		DynamicAndMemo dyMemTests = new DynamicAndMemo();
 		
 		int coinArray[] = {1,2};
-		int coinsToCount = 3;
-		
+		int coinsToCount = 3;		
 		System.out.print(dyMemTests.coins(coinArray, coinsToCount));
+		int [][] lengthPrice = new int[2][7];
+		System.out.println(lengthPrice.length);
+
 	}
 
 }
