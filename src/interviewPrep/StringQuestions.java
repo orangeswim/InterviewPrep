@@ -135,4 +135,40 @@ public boolean uniqueChars(String inputVal)
 	return true;
 }
 
+/*
+ * Shortest palindrome is being skipped in favor of longest palindrome using dynamic programming.
+ * */
+public int Palindrome(String inputVal)
+{
+	int [][] dynamicPalindrome = new int[inputVal.length()][inputVal.length()];
+	
+	for(int i = 0; i < inputVal.length(); i++)
+	{
+		dynamicPalindrome[i][i] = 1;		
+	}
+	
+	int testChar;
+	for(int i = 2; i <= inputVal.length(); i++)
+	{
+		for(int j = 0; j < inputVal.length()-i+1; j++)
+		{
+			testChar = i + j - 1;
+			if(inputVal.charAt(j) == inputVal.charAt(testChar) && i == 2)
+			{
+				dynamicPalindrome[j][testChar] = 2;
+			}
+			else if(inputVal.charAt(j) == inputVal.charAt(testChar))
+			{
+				dynamicPalindrome[j][testChar] = dynamicPalindrome[j+1][testChar-1]  + 2;
+			}
+			else
+			{
+				dynamicPalindrome[j][testChar] = Math.max(dynamicPalindrome[j][testChar-1], dynamicPalindrome[j+1][testChar]);
+			}
+		}
+	}
+
+	return dynamicPalindrome[0][inputVal.length()-1];
+}
+
 }

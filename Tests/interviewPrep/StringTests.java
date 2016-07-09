@@ -22,6 +22,7 @@ public class StringTests {
 	assertTrue(UnitTest.palindrome_slick("racecar"));
 	assertTrue(UnitTest.uniqueChars("abcde"));
 	assertFalse(UnitTest.uniqueChars("aardvark"));
-	
+	assertTrue(UnitTest.Palindrome("racecar") == 7);
+	assertTrue(UnitTest.Palindrome("Wally") == 2);
 	}
 }
