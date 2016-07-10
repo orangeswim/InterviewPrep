@@ -14,15 +14,13 @@ public	int coins(int coinValue[], int money)
 		int minCoin;
 		for(int i = 0; i < money+1; i++)
 		{
+			minCoin = Integer.MAX_VALUE;
 			for(int j =0; j < coinValue.length; j++)
 			{
 				if(i - coinValue[j] >= 0)
 				{
-					minCoin = 1+ minCoinCount[i-coinValue[j]];
-					if(minCoin < minCoinCount[i])
-					{
-						minCoinCount[i] = minCoin;
-					}
+					minCoin = Math.min(minCoin, minCoinCount[i-coinValue[j]] + 1);
+					minCoinCount[i] = minCoin;
 				}
 			}
 		}
