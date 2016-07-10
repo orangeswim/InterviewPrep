@@ -46,25 +46,53 @@ public int cutRod(int[] lengthPrice, int length)
 	return bestPrice[length];
 }
 
-
+/*
+ * http://www.geeksforgeeks.org/dynamic-programming-set-10-0-1-knapsack-problem/
+ * */
 public int oneZeroKnapSack(int [] itemVal, int [] weight, int num)
 {
-	int [] valueAt = new int[num+1];
-		valueAt[0] = 0;
-		int mostValue;
-		for(int i=1; i < valueAt.length; i++)
-		{
-			mostValue = Integer.MIN_VALUE;
-			for(int j = 0; j < itemVal.length; j++)
-			{
-				if(weight[j] <= i)
-				{
-				mostValue  = Math.max(mostValue, valueAt[i-weight[j]] + itemVal[j]);
-				valueAt[i] = mostValue;
-				}
-			}
-		}
-return valueAt[num];
+    int i, w;
+    int n = weight.length;
+    int W = num;
+int K[][] = new int[n+1][W+1];
+ 
+// Build table K[][] in bottom up manner
+for (i = 0; i <= n; i++)
+{
+    for (w = 0; w <= W; w++)
+    {
+        if (i==0 || w==0)
+             K[i][w] = 0;
+        else if (weight[i-1] <= w)
+              K[i][w] = Math.max(itemVal[i-1] + K[i-1][w-weight[i-1]],  K[i-1][w]);
+        else
+              K[i][w] = K[i-1][w];
+    }
+ }
+ 
+ return K[n][W];
+}
+
+public int memoFib(int n, int []arr)
+{
+	int fib;
+	if(n == 0)
+	{
+		arr[0] = 0; 
+		return 0;
+	}
+	if(n == 1)
+	{
+		arr[1] = 1;
+		return 1;
+	}
+	if(arr[n] != 0)
+	{
+		return arr[n];
+	}
+	fib = memoFib(n-2, arr) + memoFib(n-1, arr);
+	arr[n] = fib;
+return fib;
 }
 
 

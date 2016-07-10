@@ -42,6 +42,7 @@ public class GeneralQuestions {
 	public int pairsSorted(int [] arr)
 	{
 		ArrayList<Integer> numList = new ArrayList<Integer>();
+		
 		for(int i = 0; i < arr.length;i++)
 		{
 			numList.add(arr[i]);
@@ -49,10 +50,14 @@ public class GeneralQuestions {
 		Collections.sort(numList);
 		int pair = 0;
 		
-		//Minor enhancement can be made by only testing 1/2 the numbers.
-		for(int i : numList)
+		for(int i = 0; i < numList.size(); i++)
 		{
-			if(numList.contains(10-i))
+			arr[i] = numList.get(i);
+		}
+		//binary search on sorted array.
+		for(int i = 0; i < numList.size(); i++)
+		{
+			if(binarySearch(arr, 10 - numList.get(i)));
 			{
 				pair++;
 			}
@@ -283,12 +288,6 @@ public int multipleInts(int num1, int num2)
 	}
 	
 	return answer;
-}
-
-public int [] dynamicPrimes(int x)
-{
-	
-	return null;
 }
 
 }
