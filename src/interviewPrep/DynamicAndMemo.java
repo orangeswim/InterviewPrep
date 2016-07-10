@@ -48,10 +48,25 @@ public int cutRod(int[] lengthPrice, int length)
 	return bestPrice[length];
 }
 
-public int oneZeroKnapSack(int [] items, int weight)
+
+public int oneZeroKnapSack(int [] itemVal, int [] weight, int num)
 {
-	int [] mostWeight = new int[weight+1];
-return 0;
+	int [] valueAt = new int[num+1];
+		valueAt[0] = 0;
+		int mostValue;
+		for(int i=1; i < valueAt.length; i++)
+		{
+			mostValue = Integer.MIN_VALUE;
+			for(int j = 0; j < itemVal.length; j++)
+			{
+				if(weight[j] <= i)
+				{
+				mostValue  = Math.max(mostValue, valueAt[i-weight[j]] + itemVal[j]);
+				valueAt[i] = mostValue;
+				}
+			}
+		}
+return valueAt[num];
 }
 
 

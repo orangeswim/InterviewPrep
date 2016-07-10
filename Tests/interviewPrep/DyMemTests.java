@@ -14,6 +14,11 @@ public class DyMemTests {
 		assertTrue(dyMemTests.coins(coinArray, coinsToCount) == 2);
 		int [] lengthPrice = {1,5,8,9,10,17,17,20};
 		assertTrue(dyMemTests.cutRod(lengthPrice, 8) == 22);
+		
+		int [] itemsvals = {10,40,30,50};
+		int [] itemweight = {3,6,4,8};
+		
+		System.out.println(dyMemTests.oneZeroKnapSack(itemsvals, itemweight, 7));
 	}
 
 }
