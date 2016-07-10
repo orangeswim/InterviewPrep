@@ -16,7 +16,7 @@ public	int coins(int coinValue[], int money)
 		{
 			for(int j =0; j < coinValue.length; j++)
 			{
-				if(!(i - coinValue[j] < 0))
+				if(i - coinValue[j] >= 0)
 				{
 					minCoin = 1+ minCoinCount[i-coinValue[j]];
 					if(minCoin < minCoinCount[i])
@@ -28,23 +28,31 @@ public	int coins(int coinValue[], int money)
 		}
 		return minCoinCount[money];
 	}
-
+/*
+ * http://www.geeksforgeeks.org/dynamic-programming-set-13-cutting-a-rod/
+ * */
 public int cutRod(int[] lengthPrice, int length)
 {
 	int [] bestPrice = new int[length+1];
-	
-	Arrays.fill(bestPrice, Integer.MIN_VALUE);
-	
-	System.out.println(lengthPrice.length);
 	bestPrice[0] = 0;
-	for(int i = 1; i <length+1;i++)
+	int mostPrice;
+	for(int i = 1; i <= length;i++)
 	{
-		for(int j = 0; i < lengthPrice.length; j++)
+		mostPrice = Integer.MIN_VALUE;
+		for(int j = 0; j < i ; j++)
 		{
-			
+			mostPrice = Math.max(mostPrice, lengthPrice[j] + bestPrice[i-j-1]);
+			bestPrice[i] = mostPrice;
 		}
 	}
-	
-	return 0;
+	return bestPrice[length];
 }
+
+public int oneZeroKnapSack(int [] items, int weight)
+{
+	int [] mostWeight = new int[weight+1];
+return 0;
+}
+
+
 }
