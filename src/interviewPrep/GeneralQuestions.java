@@ -9,7 +9,7 @@ public class GeneralQuestions {
 	public GeneralQuestions(){};
 	
 	
-/*	Find the most frequent integer in an array */
+/*	Find the most frequent integer in an array naive n^2 solution*/
 
 	public int frequentInt(int [] arr)
 	{	
@@ -131,9 +131,8 @@ public class GeneralQuestions {
 		}
 		return false;
 	}	
-	
 	/*
-	 * solved using dp. better solution is to use temp variables but I wanted to explicitly use dp.
+	  solved using dp. better solution is to use temp variables but I wanted to explicitly use dp.
 	 * */
 	public int fibnums(int n)
 	{
@@ -184,8 +183,8 @@ public class GeneralQuestions {
  * */
 public int elementInArrayOnce(int [] arr)
 {
-	Hashtable<Integer, Integer>  hashArray = new Hashtable<Integer,Integer>();
-	Hashtable<Integer, Integer> memoized  = new Hashtable<Integer, Integer>();
+	Hashtable<Integer, Integer>  hashArray = new Hashtable<Integer, Integer>();
+	Hashtable<Integer, Integer>  memoized  = new Hashtable<Integer, Integer>();
 
 	
 	for(int i = 0; i < arr.length; i++)
@@ -288,6 +287,29 @@ public int multipleInts(int num1, int num2)
 	}
 	
 	return answer;
+}
+
+
+//up to 100 say fizz on divisible by 5 buzz on 7 fizzbuzz if both. Pretty easy one.
+public void fizzbuzz(int num)
+{
+boolean fizzbuzz;
+for(int i = 0; i < num; i++){
+	fizzbuzz = false;
+	if(i % 5 == 0) {
+		System.out.print("fizz");
+		fizzbuzz = true;
+		}
+	if(i % 7 == 0){
+		System.out.print("buzz");
+		fizzbuzz = true;
+	}
+	if(fizzbuzz) System.out.print(" ");
+	else System.out.print(i + " ");	
+}
+
+
+
 }
 
 }

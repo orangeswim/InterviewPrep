@@ -56,15 +56,12 @@ public String reverseRecursionString(String inputVal)
 public boolean anagram(String inputOne, String inputTwo)
 {
 	Hashtable<Character, Integer>  inputHash = new Hashtable<Character,Integer>();
-	
 	inputOne = inputOne.toLowerCase();
-	inputTwo = inputTwo.toLowerCase();
-	
+	inputTwo = inputTwo.toLowerCase();	
 	if(inputOne.length() != inputTwo.length())
 	{
 		return false;
 	}
-
 	for(int i = 0; i < inputOne.length(); i++)
 	{
 		if(!inputHash.containsKey(Character.valueOf(inputOne.charAt(i))))
@@ -75,8 +72,7 @@ public boolean anagram(String inputOne, String inputTwo)
 		{
 			inputHash.put(Character.valueOf(inputOne.charAt(i)), inputHash.get(Character.valueOf(inputOne.charAt(i)))+1);
 		}
-	}
-	
+	}	
 	for(int i = 0; i < inputTwo.length();i++)
 	{
 		int number = inputHash.get(Character.valueOf(inputTwo.charAt(i)));		
@@ -106,7 +102,6 @@ public boolean palindrome(String inputVal)
 	}
 return true;
 }
-
 /*
  * This is a much slicker way. Found on stack overflow
  * 
@@ -145,8 +140,7 @@ public int Palindrome(String inputVal)
 	for(int i = 0; i < inputVal.length(); i++)
 	{
 		dynamicPalindrome[i][i] = 1;		
-	}
-	
+	}	
 	int testChar;
 	for(int i = 2; i <= inputVal.length(); i++)
 	{
@@ -167,7 +161,6 @@ public int Palindrome(String inputVal)
 			}
 		}
 	}
-
 	return dynamicPalindrome[0][inputVal.length()-1];
 }
 

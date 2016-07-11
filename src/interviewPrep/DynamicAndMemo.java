@@ -1,6 +1,5 @@
 package interviewPrep;
 
-import java.util.Arrays;
 
 public class DynamicAndMemo {
 	
@@ -9,10 +8,9 @@ public class DynamicAndMemo {
 public	int coins(int coinValue[], int money)
 	{
 		int [] minCoinCount = new int[money+1];
-		Arrays.fill(minCoinCount, Integer.MAX_VALUE);
 		minCoinCount[0] = 0;
 		int minCoin;
-		for(int i = 0; i < money+1; i++)
+		for(int i = 0; i <= money; i++)
 		{
 			minCoin = Integer.MAX_VALUE;
 			for(int j =0; j < coinValue.length; j++)
